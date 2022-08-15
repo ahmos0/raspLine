@@ -4,11 +4,19 @@ export const textEvent = async (event, client) => {
     const { userId } = event.source;
     switch (event.message.text) {
         case 'Lチカ': {
-            ledfunc();
+            ledfunc(false);
             console.log("入った1");
             message = {
                 type: 'text',
                 text: "Lチカが無事にできました!!"
+            };
+            break;
+        }
+        case 'やめる': {
+            ledfunc(true);
+            message = {
+                type: 'text',
+                text: "Lチカを止めたよ!!"
             };
             break;
         }
